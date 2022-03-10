@@ -20,8 +20,8 @@ php artisan test
 ```
 ------------
 ### Endpoints
-[POST] http://127.0.0.1:8000/api/rate
-Doc path (Swagger) http://127.0.0.1:8000/api/documentation
+- [POST] http://127.0.0.1:8000/api/rate
+- Doc path (Swagger) http://127.0.0.1:8000/api/documentation
 
 ##### Sample Payload 
 ```json
