@@ -1,23 +1,28 @@
-## Description:
-use Laravel Framework to develop
+## Description
+A simple transaction report API with Laravel Framework
 
-## How to run and Test:
-- Clone from Repository
-- Cd to project folder
-----------------
-- copy .env.example to .env
-- composer install
-- php artisan key:generate
-- php artisan l5-swagger:generate
-- php artisan serve
-- php artisan test
------------------
+## How to run and Test
+```bash
+git clone https://github.com/mvonline/hastobe.git
+cd hastobe
+cp .env.example .env
+composer install
+php artisan key:generate
+php artisan l5-swagger:generate
+php artisan serve
+php artisan test
+```
+
 ### Run with Docker
+```bash
 ./vendor/bin/sail up -d
 ./vendor/bin/sail artisan test
+```
 ------------
-### Paths
-API path (POST) http://127.0.0.1:8000/api/rate
+### Endpoints
+[POST] http://127.0.0.1:8000/api/rate
+Doc path (Swagger) http://127.0.0.1:8000/api/documentation
+
 ##### Sample Payload 
 ```json
 {
@@ -45,22 +50,19 @@ API path (POST) http://127.0.0.1:8000/api/rate
     }
 }
 ```
-Doc path (Swagger) http://127.0.0.1:8000/api/documentation
 
-----------------
-
-## Improvements Suggestion
-- Add Station Identifire
-- Divide into two endpoint a.rate b.cdr Record
-- Stanardize response based on JsonApi
+## Improvement Suggestions
+- Add StationId in payload for the purpose of statistial analysis
+- Introduce a separete endpoint to set/change the rate and dedicate this one to records
+- Return response in a more convenient and expressive form based on JsonApi
 - Send time as timestamp or Human Readable standard
-- Generate UUID or TransactionId for Accounting purpose
+- Return UUID or TransactionId for accounting purpose
 - For Monthly Billing or pay With Credit Card maybe Batch or Async based on Message queue Suggested
 - Rate Limit
 - Cache Rate Values
 - Dockerize
 - Swagger Documentation
-- Authentication and Autherisation
+- Authentication and Authorization
 
 ## Contact
 * masoud.vafaei@gmail.com
