@@ -1,0 +1,105 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "has.to.be Documentation",
+        "description": "Coding Challenge",
+        "contact": {
+            "email": "masoud.vafaei@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://127.0.0.1:8000/",
+            "description": "API Server"
+        }
+    ],
+    "paths": {
+        "/api/rate": {
+            "post": {
+                "tags": [
+                    "CDR"
+                ],
+                "summary": "Calculate CDR Cost based on Rates",
+                "description": "Returns Overall Cost",
+                "operationId": "rate",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/rateRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "rateRequest": {
+                "properties": {
+                    "rate": {
+                        "description": "Rate",
+                        "properties": {
+                            "energy": {
+                                "description": "energy rate",
+                                "format": "integer",
+                                "default": 0.3
+                            },
+                            "time": {
+                                "description": "time rate",
+                                "format": "integer",
+                                "default": 2
+                            },
+                            "transaction": {
+                                "description": "transaction rate",
+                                "format": "integer",
+                                "default": 1
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "cdr": {
+                        "properties": {
+                            "meterStart": {
+                                "description": "meterStart",
+                                "format": "integer",
+                                "default": 1204307
+                            },
+                            "timestampStart": {
+                                "description": "timestampStart",
+                                "format": "string",
+                                "default": "2021-04-05T10:04:00Z"
+                            },
+                            "meterStop": {
+                                "description": "meterStop",
+                                "format": "integer",
+                                "default": 1215230
+                            },
+                            "timestampStop": {
+                                "description": "timestampStop",
+                                "format": "string",
+                                "default": "2021-04-05T11:27:00Z"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}
