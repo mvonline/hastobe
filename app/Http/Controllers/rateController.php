@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\rateRequest;
 use App\Http\Resources\rateResource;
+use App\Jobs\rateCalculator;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -101,5 +102,10 @@ class rateController extends Controller
         $result['timePrice'] = round($totalHour * $request->rate['time'], 3);
         $result['overall'] = round($result['energyPrice'] + $result['timePrice'] + $result['transactionPrice'], 2);
         return $result;
+    }
+
+    public function rateCalculatorAsync(rateRequest $request){
+        rateCalculator::dispatch($request);
+        return response()->json(['msg'=>'add to queue'],200);
     }
 }
