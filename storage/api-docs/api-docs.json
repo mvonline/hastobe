@@ -42,6 +42,30 @@
                     }
                 }
             }
+        },
+        "/api/rate_async": {
+            "post": {
+                "tags": [
+                    "CDR"
+                ],
+                "summary": "Async Calculate CDR Cost based on Rates - Push to Queue",
+                "description": "Returns Overall Cost - push to Queue",
+                "operationId": "AsyncRate",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/rateRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
         }
     },
     "components": {

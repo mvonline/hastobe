@@ -8,6 +8,7 @@ cd hastobe
 cp .env.example .env
 composer install
 php artisan key:generate
+php artisan storage:link
 php artisan l5-swagger:generate
 php artisan serve
 php artisan test
@@ -21,6 +22,7 @@ php artisan test
 ------------
 ### Endpoints
 - [POST] http://127.0.0.1:8000/api/rate
+- [POST] http://127.0.0.1:8000/api/rate_async  
 - Doc path (Swagger) http://127.0.0.1:8000/api/documentation
 
 ##### Sample Payload 

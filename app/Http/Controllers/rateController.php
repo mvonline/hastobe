@@ -104,6 +104,28 @@ class rateController extends Controller
         return $result;
     }
 
+    /**
+     * @OA\Post(
+     *      path="/api/rate_async",
+     *      operationId="AsyncRate",
+     *      tags={"CDR"},
+     *      summary="Async Calculate CDR Cost based on Rates - Push to Queue",
+     *      description="Returns Overall Cost - push to Queue",
+     *      @OA\RequestBody(
+     *         @OA\MediaType(
+     *             mediaType="application/json",
+     *             @OA\Schema(
+     *                 type="object",
+     *                 ref="#/components/schemas/rateRequest",
+     *             )
+     *         )
+     *     ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *       ),
+     *     )
+     */
     public function rateCalculatorAsync(rateRequest $request){
         rateCalculator::dispatch($request);
         return response()->json(['msg'=>'add to queue'],200);
